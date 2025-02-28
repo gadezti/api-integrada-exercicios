@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma Integrada de Exercícios</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Plataforma Integrada</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-tab="calculator">Calculadora de Eleição</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-tab="bubblesort">Bubble Sort</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-tab="factorial">Fatorial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-tab="multiples">Múltiplos 3 ou 5</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-tab="vehicles">Cadastro de Veículos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="tab-content">
+            <!-- Calculadora de Eleição -->
+            <div class="tab-pane fade" id="calculator">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Exercício 1: Calculadora de Eleição</h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="election-form">
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="total-voters" class="form-label">Total de Eleitores</label>
+                                    <input type="number" class="form-control" id="total-voters" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="valid-votes" class="form-label">Votos Válidos</label>
+                                    <input type="number" class="form-control" id="valid-votes" required>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="blank-votes" class="form-label">Votos em Branco</label>
+                                    <input type="number" class="form-control" id="blank-votes" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="null-votes" class="form-label">Votos Nulos</label>
+                                    <input type="number" class="form-control" id="null-votes" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Calcular</button>
+                        </form>
+                        
+                        <div class="mt-4 d-none" id="election-results">
+                            <h3>Resultados:</h3>
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <th>Percentual de Votos Válidos:</th>
+                                            <td id="valid-percentage">0%</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Percentual de Votos em Branco:</th>
+                                            <td id="blank-percentage">0%</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Percentual de Votos Nulos:</th>
+                                            <td id="null-percentage">0%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bubble Sort -->
+            <div class="tab-pane fade" id="bubblesort">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Exercício 2: Bubble Sort</h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="bubblesort-form">
+                            <div class="mb-3">
+                                <label for="array-input" class="form-label">Insira os números separados por vírgula:</label>
+                                <input type="text" class="form-control" id="array-input" placeholder="Ex: 5, 3, 2, 4, 7, 1, 0, 6" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Ordenar</button>
+                        </form>
+                        
+                        <div class="mt-4 d-none" id="bubblesort-results">
+                            <h3>Resultados:</h3>
+                            <div class="mb-3">
+                                <h5>Array Original:</h5>
+                                <div id="original-array" class="alert alert-secondary"></div>
+                            </div>
+                            <div class="mb-3">
+                                <h5>Array Ordenado:</h5>
+                                <div id="sorted-array" class="alert alert-success"></div>
+                            </div>
+                            <div class="mb-3">
+                                <h5>Passos da Ordenação:</h5>
+                                <div id="sort-steps" class="card">
+                                    <div class="card-body pre-scrollable" style="max-height: 400px; overflow-y: auto;">
+                                        <!-- Passos serão inseridos aqui -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fatorial -->
+            <div class="tab-pane fade" id="factorial">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Exercício 3: Fatorial</h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="factorial-form">
+                            <div class="mb-3">
+                                <label for="factorial-input" class="form-label">Número para calcular o fatorial:</label>
+                                <input type="number" class="form-control" id="factorial-input" min="0" max="100" required>
+                                <div class="form-text">Insira um número não-negativo (0-100).</div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Calcular</button>
+                        </form>
+                        
+                        <div class="mt-4 d-none" id="factorial-results">
+                            <h3>Resultado:</h3>
+                            <div class="alert alert-info">
+                                <div id="factorial-number" class="fw-bold"></div>
+                                <div id="factorial-result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Múltiplos 3 ou 5 -->
+            <div class="tab-pane fade" id="multiples">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Exercício 4: Múltiplos de 3 ou 5</h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="multiples-form">
+                            <div class="mb-3">
+                                <label for="limit-input" class="form-label">Limite máximo:</label>
+                                <input type="number" class="form-control" id="limit-input" min="1" required>
+                                <div class="form-text">Insira um número positivo.</div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Calcular</button>
+                        </form>
+                        
+                        <div class="mt-4 d-none" id="multiples-results">
+                            <h3>Resultados:</h3>
+                            <div class="mb-3">
+                                <h5>Múltiplos encontrados:</h5>
+                                <div id="multiples-list" class="alert alert-secondary"></div>
+                            </div>
+                            <div class="alert alert-success">
+                                <h5>Soma dos múltiplos:</h5>
+                                <div id="multiples-sum" class="fw-bold fs-4"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cadastro de Veículos -->
+            <div class="tab-pane fade" id="vehicles">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h2>Exercício 5: Cadastro de Veículos</h2>
+                        <button type="button" class="btn btn-primary" id="new-vehicle-btn">Novo Veículo</button>
+                    </div>
+                    <div class="card-body">
+                        <!-- Filtros -->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h5>Filtros</h5>
+                            </div>
+                            <div class="card-body">
+                                <form id="vehicles-filter-form">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="mb-3">
+                                                <label for="filter-brand" class="form-label">Marca</label>
+                                                <select class="form-select" id="filter-brand">
+                                                    <option value="">Todas</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="mb-3">
+                                                <label for="filter-year" class="form-label">Ano</label>
+                                                <input type="number" class="form-control" id="filter-year">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 d-flex align-items-end">
+                                            <button type="submit" class="btn btn-primary w-100">Filtrar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Estatísticas -->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h5>Estatísticas</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="card mb-3">
+                                            <div class="card-body text-center">
+                                                <h6>Total de Veículos</h6>
+                                                <span class="fs-4 fw-bold" id="total-vehicles">0</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card mb-3">
+                                            <div class="card-body text-center">
+                                                <h6>Não Vendidos</h6>
+                                                <span class="fs-4 fw-bold" id="not-sold-vehicles">0</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card mb-3">
+                                            <div class="card-body text-center">
+                                                <h6>Registrados esta semana</h6>
+                                                <span class="fs-4 fw-bold" id="vehicles-this-week">0</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6>Distribuição por Década</h6>
+                                        <ul class="list-group" id="decade-distribution">
+                                            <!-- Será preenchido pelo JavaScript -->
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6>Distribuição por Fabricante</h6>
+                                        <ul class="list-group" id="brand-distribution">
+                                            <!-- Será preenchido pelo JavaScript -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tabela de Veículos -->
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Veículo</th>
+                                        <th>Marca</th>
+                                        <th>Ano</th>
+                                        <th>Status</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="vehicles-table">
+                                    <!-- Será preenchido pelo JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Cadastro/Edição de Veículo -->
+    <div class="modal fade" id="vehicleModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="vehicleModalTitle">Novo Veículo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="vehicle-form">
+                        <input type="hidden" id="vehicle-id">
+                        <div class="mb-3">
+                            <label for="vehicle-name" class="form-label">Nome do Veículo</label>
+                            <input type="text" class="form-control" id="vehicle-name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="vehicle-brand" class="form-label">Marca</label>
+                            <select class="form-select" id="vehicle-brand" required>
+                                <option value="">Selecione uma marca</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="vehicle-year" class="form-label">Ano</label>
+                            <input type="number" class="form-control" id="vehicle-year" min="1900" max="2100" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="vehicle-description" class="form-label">Descrição</label>
+                            <textarea class="form-control" id="vehicle-description" rows="3"></textarea>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="vehicle-sold">
+                            <label class="form-check-label" for="vehicle-sold">
+                                Vendido
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="save-vehicle">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmação de Exclusão -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmar Exclusão</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Tem certeza que deseja excluir este veículo?</p>
+                    <input type="hidden" id="delete-vehicle-id">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" id="confirm-delete">Excluir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
