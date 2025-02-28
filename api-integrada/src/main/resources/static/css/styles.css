@@ -1,0 +1,163 @@
+/* Estilos Gerais */
+body {
+    padding-bottom: 40px;
+    background-color: #f8f9fa;
+  }
+  
+  .container {
+    margin-top: 20px;
+  }
+  
+  .card {
+    margin-bottom: 20px;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  }
+  
+  .card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  }
+  
+  /* Estilos das Tabs */
+  .tab-pane {
+    padding: 20px 0;
+  }
+  
+  .nav-link {
+    color: #495057;
+    cursor: pointer;
+  }
+  
+  .nav-link.active {
+    font-weight: bold;
+  }
+  
+  /* Estilos dos Formulários */
+  .form-label {
+    font-weight: 500;
+  }
+  
+  .required::after {
+    content: "*";
+    color: red;
+    margin-left: 3px;
+  }
+  
+  /* Estilos para o Bubble Sort */
+  #sort-steps {
+    max-height: 300px;
+    overflow-y: auto;
+    font-family: monospace;
+  }
+  
+  /* Estilos para o Cadastro de Veículos */
+  .table th {
+    background-color: #f8f9fa;
+  }
+  
+  .badge {
+    font-size: 0.8rem;
+  }
+  
+  .pre-scrollable {
+    max-height: 340px;
+    overflow-y: auto;
+  }
+  
+  /* Estatísticas na seção de veículos */
+  #decade-distribution, #brand-distribution {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  /* Espaçamento nos resultados */
+  .alert {
+    word-break: break-word;
+  }
+  
+  /* Botões de ação na tabela */
+  .btn-sm {
+    margin-right: 5px;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .card-body {
+      padding: 1rem;
+    }
+    
+    .table-responsive {
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* Estilos específicos para o exercício de cálculo de eleição */
+  #election-results {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+  }
+  
+  /* Estilos para os resultados do exercício de fatorial */
+  #factorial-result {
+    font-family: monospace;
+    font-size: 1.1rem;
+    word-break: break-all;
+  }
+  
+  /* Estilos para a lista de múltiplos */
+  #multiples-list {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  /* Estilos para a seção de estatísticas de veículos */
+  .card-body .card {
+    transition: transform 0.2s;
+  }
+  
+  .card-body .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Animações de transição para tabs */
+  .tab-pane {
+    transition: opacity 0.3s;
+  }
+  
+  .tab-pane:not(.show) {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+  }
+  
+  .tab-pane.show {
+    opacity: 1;
+    height: auto;
+  }
+  
+  /* Estilos para os headers das seções */
+  .card-header h2, .card-header h5 {
+    margin-bottom: 0;
+  }
+  
+  /* Estilos para melhorar a visualização em dispositivos móveis */
+  @media (max-width: 576px) {
+    .btn {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    
+    .btn-sm {
+      width: auto;
+    }
+    
+    .card-header {
+      flex-direction: column;
+      align-items: flex-start !important;
+    }
+    
+    .card-header .btn {
+      margin-top: 10px;
+    }
+  }
